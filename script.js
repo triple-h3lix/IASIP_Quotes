@@ -83,9 +83,9 @@ function changeBG() {
   let random = quotes[randInt()];
 
   if (random.character == "Frank Reynolds") {
-    document.body.style.backgroundImage = "url('images/frank.jpg')";
+    document.body.style.backgroundImage = "url('frank.jpg')";
   } else if (random.character == "Charlie Kelly") {
-    document.body.style.backgroundImage = "url('images/charlie.jpg')";
+    document.body.style.backgroundImage = "url('charlie.jpg')";
   }
 }
 
