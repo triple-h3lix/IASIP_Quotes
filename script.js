@@ -48,29 +48,28 @@ function randInt(max) {
 }
 
 function fadeOut(element) {
-    var op = 1;
-    var timer = setInterval(function () {
-        if (op <= 0.1){
-            clearInterval(timer);
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.1;
-    }, 20);
+  var op = 1;
+  var timer = setInterval(function () {
+    if (op <= 0.1) {
+      clearInterval(timer);
+    }
+    element.style.opacity = op;
+    element.style.filter = "alpha(opacity=" + op * 100 + ")";
+    op -= op * 0.1;
+  }, 20);
 }
 
 function fadeIn(element) {
-	var op = 0.1;
-	var timer = setInterval(function () {
-		if (op >= 1){
-			clearInterval(timer);
-		}
-		element.style.opacity = op;
-		element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-		op += op * 0.1;
-	}, 20);
+  var op = 0.1;
+  var timer = setInterval(function () {
+    if (op >= 1) {
+      clearInterval(timer);
+    }
+    element.style.opacity = op;
+    element.style.filter = "alpha(opacity=" + op * 100 + ")";
+    op += op * 0.1;
+  }, 20);
 }
-
 
 function changeText() {
   let random = quotes[randInt()];
@@ -78,28 +77,24 @@ function changeText() {
   document.getElementById("quote").innerText = random.quote;
   document.getElementById("name").innerHTML =
     "<h3> - <em>" + random.character + "<em><h3>";
-
 }
 
 function changeBG() {
   let random = quotes[randInt()];
 
   if (random.character == "Frank Reynolds") {
-    document.body.style.backgroundImage = "url('frank.jpg')";
+    document.body.style.backgroundImage = "url('images/frank.jpg')";
   } else if (random.character == "Charlie Kelly") {
-    document.body.style.backgroundImage = "url('charlie.jpg')";
+    document.body.style.backgroundImage = "url('images/charlie.jpg')";
   }
 }
 
 // function that fades out the current quote and fades in the new quote
 function changeQuote() {
-
-	let quote = document.getElementById("quote");
-	let name = document.getElementById("name");
+  let quote = document.getElementById("quote");
+  let name = document.getElementById("name");
 
   changeText();
 
   changeBG();
-
 }
-
