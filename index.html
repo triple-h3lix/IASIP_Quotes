@@ -1,19 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <script type="text/javascript" src="script.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
   <title>It's Always Sunny - Random Quote Generator</title>
+  <style>
+    body,
+    html {
+      height: 100%;
+      width: auto;
+      margin: 0;
+      padding: 0;
+      background-image: none;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #000;
+      font-size: 1em;
+    }
+    
+    .wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      padding: 2em;
+      width: 500px;
+      height: 150px;
+      color: rgb(245, 225, 42);
+      text-shadow: 1px 1px 3px #000000;
+      text-align: center;
+      font-size: 1.5rem;
+      animation: fadeInOut 4s linear 1 forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    h3 {
+      margin: 12px 0 0 0;
+    }
+
+    #quote {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+
+    #name {
+      font-size: 1.2rem;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .bttn {
+      position: fixed;
+      top: 80vh;
+    }
+
+    #next {
+      background: #ff0;
+      color: #000000;
+      text-shadow: 1px 1px 1px white;
+      border: 4px solid #000000;
+      border-radius: 5px;
+      padding: 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
 </head>
+
 <body>
-    <div id="output">
-      Click on the "Next" button
+  <div class="wrapper">
+    <div class="container">
+      <span id="quote">PRESS 'NEXT QUOTE' TO START</span><span id="name"></span>
     </div>
     <div class="bttn">
-      <button id='next' type="button" onclick="changeText()">
-        NEXT QUOTE
-      </button>
+      <button id='next' type="button" onclick="changeQuote()">NEXT QUOTE</button>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
