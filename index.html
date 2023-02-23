@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="script.js" type="text/javascript"></script>
   <title>It's Always Sunny - Random Quote Generator</title>
   <style>
@@ -12,14 +13,15 @@
       width: auto;
       margin: 0;
       padding: 0;
-      background-image: none;
+      background-image: url("/images/frank.jpg");
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      background-color: #000;
+      background-attachment: fixed;
+      background-color: #000000 !important;
       font-size: 1em;
     }
-    
+
     .wrapper {
       height: 100%;
       display: flex;
@@ -44,6 +46,7 @@
       0% {
         opacity: 0;
       }
+
       100% {
         opacity: 1;
       }
@@ -58,7 +61,7 @@
       font-weight: 300;
     }
 
-    #name {
+    #character {
       font-size: 1.2rem;
       font-weight: 400;
       font-style: italic;
@@ -69,12 +72,22 @@
       top: 80vh;
     }
 
-    #next {
+    .bttn button {
       background: #ff0;
       color: #000000;
       text-shadow: 1px 1px 1px white;
       border: 4px solid #000000;
-      border-radius: 5px;
+      border-radius: 10px;
+      padding: 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .bttn button:hover {
+      background: #000000;
+      color: #ff0;
+      text-shadow: 1px 1px 1px white;
+      border: 4px solid #ff0;
+      border-radius: 10px;
       padding: 20px;
       font-family: 'Roboto', sans-serif;
     }
@@ -84,7 +97,7 @@
 <body>
   <div class="wrapper">
     <div class="container">
-      <span id="quote">PRESS 'NEXT QUOTE' TO START</span><span id="name"></span>
+      <span id="quote">PRESS 'NEXT QUOTE' TO START</span><span id="character"></span>
     </div>
     <div class="bttn">
       <button id='next' type="button" onclick="changeQuote()">NEXT QUOTE</button>
