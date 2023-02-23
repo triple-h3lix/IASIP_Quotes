@@ -4,6 +4,9 @@ const quotes = [
   {
     quote: "I eat stickers all the time, dude!",
     character: "Charlie Kelly",
+  },{
+    quote: "*Bird Noises*",
+    character: "Dee Reynolds",
   },
   {
     quote: "Why don't I strap on my job helmet and squeeze down into a job cannon and fire off into job land, where jobs grow on jobbies?",
@@ -30,82 +33,82 @@ const quotes = [
     character: "Dennis Reynolds",
   },
   {
-    quote: "Groban likes his ladies to pop.",
-    character: "Dee Reynolds",
+    quote: "Cat in the wall! Now you're talking my language.",
+    character: "Charlie Kelly",
   },
   {
-    quote: "I'll burn you alive like the last bitch who crossed me!",
-    character: "Dee Reynolds",
+    quote: "Well, first of all, through God all things are possible, so jot THAT down.",
+    character: "Mac",
   },
   {
-    quote: "Its like when I'm doing good in the game, I'm doing good in real life",
-    character: "Dee Reynolds"
+    quote: "I don't know how many years I got left on this planet, so I'm going to get REAL weird with it.",
+    character: "Frank Reynolds",
+  },
+  {
+    quote: "I am untethered and my rage knows no bound!",
+    character: "Dennis Reynolds"
+  },
+  {
+    quote: "There's poison in those jars?! I thought I was allergic to pickles!",
+    character: "Frank Reynolds",
+  },
+  {
+    quote: "Bird law in this country is not governed by reason!",
+    character: "Charlie Kelly",
+  },
+  {
+    quote: "So... you saw me eat that Hot Pocket out of the trash?...",
+    character: "Charlie Kelly",
+  },
+  {
+    quote: "Oooh shit. You see that door over there marked 'Pirate'? You think a pirate lives in there?",
+    character: "Charlie Kelly",
+  },{
+    quote: "Cream always rises to the top, and you're about to see the white hot cream of an eigth grade boy.",
+    character: "Charlie Kelly",
+  },{
+    quote: "I hate listening to people's dreams. It is like flipping through a stack of photographs. If I'm not in any of them and nobody is having sex, I just don't care.",
+    character: "Dennis Reynolds",
+  },{
+    quote: "I'm a... full on rapist.",
+    character: "Charlie Kelly",
+  },{
+    quote: "That doesn't sound right, but I don't know enough about stars to dispute it.",
+    character: "Mac",
+  },{
+    quote: "How about I take your wife upstairs and show her what it's like to be inside a REALLY big house!?",
+    character: "Mac"
+  },{
+    quote: "S you in your A's. Don't wear a C. J all over your B's!",
+    character: "Charlie Kelly",
   }
-]
-
-
-function randInt(max) {
-  let n = Math.floor(Math.random() * quotes.length);
-  return n;
-}
-
-function fadeOut(element) {
-  var op = 1;
-  var timer = setInterval(function () {
-    if (op <= 0.1) {
-      clearInterval(timer);
-    }
-    element.style.opacity = op;
-    element.style.filter = "alpha(opacity=" + op * 100 + ")";
-    op -= op * 0.1;
-  }, 20);
-}
-
-function fadeIn(element) {
-  var op = 0.1;
-  var timer = setInterval(function () {
-    if (op >= 1) {
-      clearInterval(timer);
-    }
-    element.style.opacity = op;
-    element.style.filter = "alpha(opacity=" + op * 100 + ")";
-    op += op * 0.1;
-  }, 20);
-}
-
-function changeText() {
-  let random = quotes[randInt()];
-
-  document.getElementById("quote").innerText = random.quote;
-  document.getElementById("character").innerHTML =
-    "<h3> - <em>" + random.character + "<em><h3>";
-}
+]; 
 
 function changeBG(name) {
 
   if (name == "Charlie Kelly") {
-    document.body.style.backgroundImage = "url('images/charlie.jpg')";
-  } else if (name == "Mac") {
-    document.body.style.backgroundImage = "url('images/mac.jpg')";
+    document.getElementsByTagName("body")[0].style.backgroundImage = "url(charlie.jpg)";
   }
-  else if (name == "Dennis Reynolds") {
-    document.body.style.backgroundImage = "url('images/dennis.jpg')";
-  }
-  else if (name == "Dee Reynolds") {
-    document.body.style.backgroundImage = "url('images/dee.jpg')";
+  else if (name == "Mac") {
+    document.getElementsByTagName("body")[0].style.backgroundImage = "url(mac.jpg)";
   }
   else if (name == "Frank Reynolds") {
-    document.body.style.backgroundImage = "url('images/frank.jpg')";
+    document.getElementsByTagName("body")[0].style.backgroundImage = "url(frank.jpg)";
+  }
+  else if (name == "Dee Reynolds") {
+    document.getElementsByTagName("body")[0].style.backgroundImage = "url(dee.jpg)";
+  }
+  else if (name == "Dennis Reynolds") {
+    document.getElementsByTagName("body")[0].style.backgroundImage = "url(dennis.jpg)";
   }
 }
 
-// function that fades out the current quote and fades in the new quote
-function changeQuote() {
-  let quote = document.getElementById("quote");
-  let name = document.getElementById("character");
+function newQuote() {
+  let newQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
-  changeText();
+  document.getElementById("quote").innerHTML = '"' + newQuote.quote + '"';
+  document.getElementById("name").innerHTML = '<br> - ' + newQuote.character;
 
-  changeBG(document.getElementById("character").innerText);
+  changeBG(newQuote.character);
 
 }
