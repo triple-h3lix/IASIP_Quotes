@@ -344,12 +344,15 @@
 
     // helper function to adjust font size and container position based on quote length
     function adjustFontSize(quote) {
+      // make position: absolute for the .container element
+        $('.container').css('position', 'absolute');
         if (quote.length > 70) {
             $('#quote').css('font-size', '1.2rem');
-            //$('.container').css('top', '10vh');
+            // shift the container up to make room for the name element
+            $('.container').css('top', '20vh');
         } else {
             $('#quote').css('font-size', '1.5rem');
-            //$('.container').css('top', '15vh');
+            $('.container').css('top', '30vh');
         }
     };
 
