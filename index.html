@@ -319,8 +319,10 @@
 
         });
 
+        $('#name').text("");
+
         $('#name').animate({ opacity: 0 }, 500, function () {
-          $(this).animate({ opacity: 1 }, 1200);
+          $(this).animate({ opacity: 1 }, 500);
           $(this).text("- " + randomQuote.character);
           
         });
