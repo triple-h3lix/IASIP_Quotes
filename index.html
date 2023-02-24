@@ -86,6 +86,7 @@
       #name {
         display: block;
         font-size: 1.3rem;
+        letter-spacing: 0.05rem;
         font-weight: bold;
         margin-right: 18px;
         text-align: center;
@@ -95,6 +96,7 @@
     @media screen and (min-width: 600px) {
       #name {
         display: block;
+        letter-spacing: 0.05rem;
         font-weight: bold;
         margin-right: 18px;
         text-align: right;
@@ -290,16 +292,16 @@
 
     $(document).ready(function () {
 
-      // Set the font size for apostrophes to be twice as large as the rest of the quote
-      $('.apostrophe').css('font-size', '2.5em');
+      
 
       $('#nextQuote').click(function () {
-
-
 
           // Clear the quote and name elements before updating
           $('#quote').text("");
           $('#name').text("");
+
+          $('.blur').css('opacity', '100%');
+          $('.blur').css('filter', 'blur(5px)');
 
           // get a random quote from quotes array
           let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -309,12 +311,16 @@
               randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
           };
 
+          // reset .blur opacity and filter
+          $('.blur').css('opacity', '0');
+          $('.blur').css('filter', 'blur(0px)');
+
           // update quote and name elements with fade animation
-          $('#quote').fadeOut(100, function () {
+          $('#quote').fadeOut(50, function () {
 
             // reset .blur opacity and filter
-            $('.blur').css('opacity', '0');
-            $('.blur').css('filter', 'blur(0px)');
+            //$('.blur').css('opacity', '0');
+            //$('.blur').css('filter', 'blur(0px)');
 
 
             $(this).fadeIn(1000);
@@ -325,7 +331,7 @@
 
             $('.blur').css('background-color', 'black');
             $('.blur').css('filter', 'blur(5px)');
-            $('.blur').animate({ opacity: '50%'}, 1000);
+            $('.blur').animate({ opacity: '40%'}, 1000);
           });
           
           $('#name').fadeOut(500, function () {
