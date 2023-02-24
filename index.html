@@ -11,7 +11,13 @@
     @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
     html {
-      font-size: 32px;
+      font-size: 35px;
+    }
+
+    @media screen and (max-width: 800px) {
+      html {
+        font-size: 20px;
+      }
     }
 
     body {
@@ -26,13 +32,6 @@
       background-position: center;
       background-attachment: fixed;
       font-family: "Playfair Display", serif;
-    }
-
-    /* reduce font size for smaller screens */
-    @media screen and (max-width: 600px) {
-      html {
-        font-size: 16px;
-      }
     }
 
     .blur {
@@ -55,48 +54,73 @@
       max-height: 90vh;
       max-width: 100%;
       width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    @media screen and (max-width: 800px) {
+      .wrapper {
+        max-height: 100vh;
+        padding-top: 10vh;
+      }
     }
 
     .container {
       display: inline-block;
       position: absolute;
-      top: 20vh;
-      width: 80%;
-      max-height: 40%;
+      top: 30vh;
+      max-width: 80vw;
+      height: auto;
       color: rgb(245, 225, 42);
       text-shadow: 0 0 5px #000000;
       text-align: center;
-      line-clamp: 4;
-      overflow: var(font-size 1.0rem);
-      padding: 20px;
     }
 
     #quote {
       display: block;
-      font-size: 1.3rem;
       font-style: italic;
       margin: 20px 0;
     }
 
-    #name {
-      display: block;
-      font-size: 1.1rem;
-      font-weight: bold;
+    @media screen and (max-width: 600px) {
+      #name {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-right: 18px;
+        text-align: center;
+      }
+    }
+
+    @media screen and (min-width: 600px) {
+      #name {
+        display: block;
+        font-weight: bold;
+        margin-right: 18px;
+        text-align: right;
+      }
     }
 
     .button {
+      display: inline-block;
       position: fixed;
-      top: 80vh;
+      bottom: 10vh;
+      transform: translateY(-50%);
+      max-width: 80vw;
+      height: auto;
+      color: rgb(245, 225, 42);
+      text-shadow: 0 0 5px #000000;
+      text-align: center;
     }
-
+    
     .button button {
+      width: 120px;
+      height: 50px;
       background: #ff0;
       color: #000000;
       box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
       border: 5px solid #000000;
-      border-radius: 12px;
-      padding: 10px;
-      font-family: "Roboto", sans-serif;
+      border-radius: 12px;      font-family: "Roboto", sans-serif;
       font-weight: 800;
       cursor: pointer;
     }
@@ -107,8 +131,8 @@
       box-shadow: rgba(255, 255, 0, 0.8) 0 0 10px;
       border: 5px solid #ff0;
       border-radius: 12px;
-      padding: 10px;
     }
+
   </style>
 </head>
 
@@ -128,130 +152,175 @@
 	</div>
 
   <script>
-        // array of objects containing quotes and names
-        const quotes = [
-          { quote: "I eat stickers all the time, dude!",
-            character: "Charlie Kelly",
-          },{
-            quote: "*Bird Noises*",
-            character: "Dee Reynolds",
-          },{
-            quote: "Why don't I strap on my job helmet and squeeze down into a job cannon and fire off into job land, where jobs grow on jobbies?",
-            character: "Charlie Kelly",
-          },{
-            quote: "Bro, I can handle my sedatives.",
-            character: "Charlie Kelly",
-          },{
-            quote: "I do backflips every single day of my life.",
-            character: "Mac",
-          },{
-            quote: "I'm not fat. I'm cultivating mass.",
-            character: "Mac",
-          },{
-            quote: "Let me tell you something. I haven't even BEGUN to peak. And when I do peak... you'll know it.",
-            character: "Dennis Reynolds",
-          },{
-            quote: "I am the Golden God!",
-            character: "Dennis Reynolds",
-          },{
-            quote: "Cat in the wall! Now you're talking my language.",
-            character: "Charlie Kelly",
-          },{
-            quote: "Well, first of all, through God all things are possible, so jot THAT down.",
-            character: "Mac",
-          },{
-            quote: "I don't know how many years I got left on this planet, so I'm going to get REAL weird with it.",
-            character: "Frank Reynolds",
-          },{
-            quote: "I am untethered and my rage knows no bound!",
-            character: "Dennis Reynolds"
-          },{
-            quote: "There's poison in those jars?! I thought I was allergic to pickles!",
-            character: "Frank Reynolds",
-          },{
-            quote: "Bird law in this country is not governed by reason!",
-            character: "Charlie Kelly",
-          },{
-            quote: "So... you saw me eat that Hot Pocket out of the trash?...",
-            character: "Charlie Kelly",
-          },{
-            quote: "Oooh shit. You see that door over there marked 'Pirate'? You think a pirate lives in there?",
-            character: "Charlie Kelly",
-          },{
-            quote: "Cream always rises to the top, and you're about to see the white hot cream of an eigth grade boy.",
-            character: "Charlie Kelly",
-          },{
-            quote: "I hate listening to people's dreams. It is like flipping through a stack of photographs. If I'm not in any of them and nobody is having sex, I just don't care.",
-            character: "Dennis Reynolds",
-          },{
-            quote: "I'm a... full on rapist.",
-            character: "Charlie Kelly",
-          },{
-            quote: "That doesn't sound right, but I don't know enough about stars to dispute it.",
-            character: "Mac",
-          },{
-            quote: "How about I take your wife upstairs and show her what it's like to be inside a REALLY big house!?",
-            character: "Mac"
-          },{
-            quote: "S you in your A's. Don't wear a C. J all over your B's!",
-            character: "Charlie Kelly",}
-        ]; 
+    // array of objects containing quotes and names
+    const quotes = [
+      { quote: " I eat stickers all the time, dude!", character: "Charlie Kelly", }, {
+        quote: "*Bird Noises*",
+        character: "Dee Reynolds",
+      }, {
+        quote: "Why don't I strap on my job helmet and squeeze down into a job cannon and fire off into job land, where jobs grow on jobbies?"
+        , character: "Charlie Kelly",
+      }, { quote: "Bro, I can handle my sedatives.", character: "Charlie Kelly", }, {
+        quote: "I do backflips every single day of my life.", character: "Mac",
+      }, {
+        quote: "I'm not fat. I'm cultivating mass.", character: "Mac",
+      }, {
+        quote: "Let me tell you something. I haven't even BEGUN to peak. And when I do peak... you'll know it.",
+        character: "Dennis Reynolds",
+      }, { quote: "I am the Golden God!", character: "Dennis Reynolds", }, {
+        quote: "Cat in the wall! Now you're talking my language.", character: "Charlie Kelly",
+      }, {
+        quote: "Well, first of all, through God all things are possible, so jot THAT down.", character: "Mac",
+      }, {
+        quote: "I don't know how many years I got left on this planet, so I'm going to get REAL weird with it.",
+        character: "Frank Reynolds",
+      }, {
+        quote: "I am untethered and my rage knows no bounds!",
+        character: "Dennis Reynolds"
+      }, {
+        quote: "There's poison in those jars?! I thought I was allergic to pickles!",
+        character: "Frank Reynolds",
+      }, {
+        quote: "Bird law in this country is not governed by reason!",
+        character: "Charlie Kelly",
+      }, {
+        quote: "So... you saw me eat that Hot Pocket out of the trash?...",
+        character: "Charlie Kelly",
+      }, {
+        quote: "Oooh shit. You see that door over there marked 'Pirate'? You think a pirate lives in there?",
+        character: "Charlie Kelly",
+      }, {
+        quote: "Cream always rises to the top, and you're about to see the white hot cream of an eigth grade boy.",
+        character: "Charlie Kelly",
+      }, {
+        quote: "I hate listening to people's dreams. It is like flipping through a stack of photographs. If I'm not in any of them and nobody is having sex, I just don't care."
+        , character: "Dennis Reynolds",
+      }, { quote: "I'm a... full on rapist.", character: "Charlie Kelly", }, {
+        quote: "That doesn't sound right, but I don't know enough about stars to dispute it.", character: "Mac",
+      }, {
+        quote: "How about I take your wife upstairs and show her what it's like to be inside a REALLY big house!?",
+        character: "Mac"
+      }, {
+        quote: "S you in your A's. Don't wear a C. J all over your B's!",
+        character: "Charlie Kelly",
+      }, {
+        quote: "Yeah, I got into this skirmish with stray Chocolate Lab. I won't go into details, but sufficed to say... that dog is very paralyzed now."
+        , character: "Rickety Cricket",
+      }, {
+        quote: "Hips and nips! You gotta make it sexy!",
+        character: "Rickety Cricket",
+      }, {
+        quote: "You have to fake it on the streets. The ones who don't fake it are the the ones who get it the worst..."
+        , character: "Rickety Cricket",
+      }, {
+        quote: "I got my Magnum condoms; I got my wad of hundreds. I'm ready to plowww!", character: "Frank Reynolds",
+      }, {
+        quote: "Roxy, God bless you. You were a good whore. You serviced me like no other whore ever did. Not only my crank, but my heart. And… I’m gonna miss ya. Amen."
+        , character: "Frank Reynolds",
+      }, {
+        quote: "It'll cost you a whole sixer if you want to unburden yourself in... that way.",
+        character: "Rickety Cricket",
+      }, {
+        quote: "Yeah, I'm the suck boy you're looking for.",
+        character: "Rickety Cricket",
+      }, { quote: "You gotta pay to spray.", character: "Rickety Cricket", }, {
+        quote: "Rise up! Gonna get higher and higher!", character: "Rickety Cricket"
+      }, {
+        quote: "Block the wind; I'm gonna roast this bone.", character: "Frank Reynolds",
+      }, {
+        quote: 'Cute. You leave this pen here, and people are supposed to think, “Wait, this looks like a dick!”',
+        character: "Mac",
+      }, {
+        quote: "You haven't thought of the SMELL, you bitch!", character: "Dennis Reynolds",
+      }, { quote: "Masturbating bums are bad for business.", character: "Frank Reynolds", }, {
+        quote: "We're two different people. We can't have the same left!", character: "Charlie Kelly",
+      }, {
+        quote: "How much cheese is too much cheese?", character: "Charlie Kelly",
+      }, {
+        quote: "I feel like you’re starting to say a word and you’re not finishing it. Are you trying to say 'spaghetti'? Are you taking me for a spaghetti day?"
+        , character: "Charlie Kelly",
+      }, { quote: "I did an ocular patdown and I cleared him.", character: "Mac", },
+      { quote: "Can I offer you an egg in these trying times?", character: "Frank Reynolds", }, {
+        quote: "She was an angel. She was always smiling.... because she had no lips.", character: "Frank Reynolds"
+      },
+      { quote: "She's mashing it.", character: "Frank Reynolds", }, {
+        quote: "If I was looking for safe, I wouldn't be sticking my dick through a hole in a wall.",
+        character: "Frank Reynolds",
+      }, {
+        quote: "I’m just saying, based on that story that you just told me, I’m fairly certain that those Santas were running a train on your mom for money."
+        , character: "Mac",
+      }, {
+        quote: "Dude, I swear to God, if you try and give me a noogie, I will yank your underwear over your head so hard your asshole will rip in half."
+        , character: "Dennis Reynolds",
+      }, {
+        quote: "Smoke some cigarettes. The smoke will suffocate the bacteria in your stomach.", character: "Mac",
+      }, {
+        quote: "I shoulda popped my shirt off. Goddammit, really shoulda popped that shirt off.",
+        character: "Dennis Reynolds",
+      }, {
+        quote: "Who am I supposed to vote for? Am I supposed to vote for the Democrat who’s gonna blast me in the ass or the Republican who’s blasting my ass?"
+        , character: "Dennis Reynolds",
+      }, {
+        quote: "That's it. I'm going into the crevice!",
+        character: "Charlie Kelly"
+      }, {
+        quote: "They’re actors. They’re trying to create an illusion. In the “Lord of the Rings” movie, Ian McKellen plays a wizard. You think he goes home at night and shoots laser beams into his boyfriend’s asshole?"
+        , character: "Mac",
+      }, {
+        quote: "I'm playing both sides! That way I always come out on top.", character: "Mac"
+      }, { quote: "I've seen many pigs eat many men.", character: "Frank Reynolds" 
+    }]; 
 
-        // change background-image property of body
-        function changeBackground(name) {
-
-          // decrease opacity of div with .blur class
-          $('.blur').animate({ opacity: 0 }, 500, function () {
-            $(this).animate({ opacity: 1 }, 500);
-          });
-
-          if (name == "Charlie Kelly") {
-            document.getElementsByTagName('body')[0].style.backgroundImage = "url('./charlie.jpg')";
-          } else if (name == "Dee Reynolds") {
-            document.getElementsByTagName('body')[0].style.backgroundImage = 
-            "url('./dee.jpg')";
-          } else if (name == "Frank Reynolds") {
-            document.getElementsByTagName('body')[0].style.backgroundImage = 
-            "url('./frank.jpg')";
-          } else if (name == "Dennis Reynolds") {
-            document.getElementsByTagName('body')[0].style.backgroundImage = 
-            "url('./dennis.jpg')";
-          } else if (name == "Mac") {
-            document.getElementsByTagName('body')[0].style.backgroundImage = 
-            "url('./mac.jpg')";
-          }
+    function changeBackground(name) {
+        (function () { $(this).animate({ opacity: 1 }, 500); }); if (name == "Charlie Kelly") {
+          document.getElementsByTagName('body')[0].style.backgroundImage = "url('./charlie.jpg')";
+        } else if
+          (name == "Dee Reynolds") { document.getElementsByTagName('body')[0].style.backgroundImage = "url('./dee.jpg')"; }
+        else if (name == "Frank Reynolds") {
+          document.getElementsByTagName('body')[0].style.backgroundImage = "url('./frank.jpg')";
+        } else if
+          (name == "Dennis Reynolds") {
+          document.getElementsByTagName('body')[0].style.backgroundImage = "url('./dennis.jpg')";
+        } else if (name == "Mac") { document.getElementsByTagName('body')[0].style.backgroundImage = "url('./mac.jpg')"; } else if
+          (name == "Rickety Cricket") {
+          document.getElementsByTagName('body')[0].style.backgroundImage = "url('./cricket.jpg')";
         }
+    }
+    $(document).ready(function () {
+      $('#nextQuote').click(function () {
 
-        // create an event listener for the button, and when clicked, change the quote and name
-        // also change the background image to match the character
-        // using .animate() to animate the opacity of the quote and name
-        $(document).ready(function () {
-          $('#nextQuote').click(function () {
-            let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        let randomQuote = quotes[Math.floor(Math.random() * quotes.length)]; $('#quote').animate({ opacity: 0 }, 500, function
+          () {
 
-            $('#quote').animate({ opacity: 0 }, 500, function () {
+            // compare new quote with previous quote. if they are the same, generate a new quote
+            while (randomQuote.quote == $('#quote').text()) {
+              randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            }
 
-              $(this).animate({ opacity: 1 }, 500);
-              if (randomQuote.quote.length > 50) {
-                  $('#quote').css('font-size', '1.1em');
-                } else {
-                  $('#quote').css('font-size', '1.5em');
-                }
-                
-              $('#quote').text(randomQuote.quote);
+            $(this).animate({ opacity: 1 }, 500);
 
-            });
+            if (randomQuote.quote.length > 100) {
+              $('#quote').css('font-size', '1.2rem');
+              $('.container').css('top', '10vh');
+            } else {
+              $('#quote').css('font-size', '1.5rem');
+              $('.container').css('top', '15vh');
+            }
 
-            $('#name').animate({ opacity: 0 }, 500, function () {
+          $('#quote').text('"' + randomQuote.quote + '"');
 
-              $(this).animate({ opacity: 1 }, 500);
-              $('#name').text(randomQuote.character);
-
-            });
-
-            changeBackground(randomQuote.character);
-          });
         });
+
+        $('#name').animate({ opacity: 0 }, 500, function () {
+
+          $(this).animate({ opacity: 1 }, 1000);
+          $('#name').text("- " + randomQuote.character);
+
+        });
+
+        changeBackground(randomQuote.character);
+      });
+    });
 
   </script>
 </body>
